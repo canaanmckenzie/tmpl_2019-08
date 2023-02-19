@@ -299,7 +299,9 @@ void swap()
 #endif
 
 int main( int argc, char **argv ) 
-{  
+{ 
+	//disable vsync - removes limiter of 60fps
+	//SDL_SetHintWithPriority(SDL_HINT_RENDER_VSYNC, "0", SDL_HINT_OVERRIDE);
 #ifdef _MSC_VER
     if (!redirectIO())
         return 1;
