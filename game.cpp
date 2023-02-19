@@ -45,16 +45,29 @@ namespace Tmpl8
 		spriteX += speedX;
 		speed++;
 		bool hitBottom = spriteY > (512 - 50);
+		bool hitTop = spriteY < (0);
+		bool hitRight = spriteX > (812 - 50);
+		bool hitLeft = spriteX < (0);
 		//printf("hitBottom: %i\n", hitBottom);
 
 		if (hitBottom) {
 			spriteY = 512 - 50;
 			speed = -speed;
-			screen->Clear(0xff0000);
 			theSprite.Draw(screen, spriteX, spriteY);
 		}
-		else {
-			screen->Clear(0);
+		else if (hitTop){
+			spriteY = 0;
+			speed = - 0.5 * speed;
+			theSprite.Draw(screen, spriteX, spriteY);
+		}
+		if (hitRight) {
+			spriteX = 812 - 50;
+			speedX = -speedX;
+			theSprite.Draw(screen, spriteX, spriteY);
+		}
+		else if (hitLeft) {
+			spriteX = 0;
+			speedX = -speedX;
 			theSprite.Draw(screen, spriteX, spriteY);
 		}
 	}
