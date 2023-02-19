@@ -29,17 +29,31 @@ namespace Tmpl8
 		screen->Line(150 + x, 50 + y, 150 + x, 300 + y, 0xffffff);
 		screen->Line(100 + x, 300 + y, 200 + x, 300 + y, 0xffffff);
 	}
-	Sprite theSprite(new Surface("assets/ctankbase.tga"), 16);
+	Sprite theSprite(new Surface("assets/ball.png"), 1);
+
+	int spriteX = 0;
+	int spriteY = 100;
+	int speed = 1;
 
 	void Game::Tick(float deltaTime)
 	{
 		//draw sprites - tga (raster files)
 		screen->Clear(0);
-			for (int i = 0; i < 16; i++) {
-			theSprite.SetFrame(i);
-			for (int j = 0; j < 10; j++) {
-				theSprite.Draw(screen, i * 50, j*50);
-			}
+		theSprite.Draw(screen, spriteX, spriteY); //add ball to screen
+		spriteY += speed;
+		speed++;
+		bool hitBottom = spriteY > (512 - 50);
+		printf("hitBottom: %i\n", hitBottom);
+
+		if (hitBottom) {
+			spriteY = 512 - 50;
+			speed = -speed;
+			screen->Clear(0xff0000);
+			theSprite.Draw(screen, spriteX, spriteY);
+		}
+		else {
+			screen->Clear(0);
+			theSprite.Draw(screen, spriteX, spriteY);
 		}
 	}
 };
