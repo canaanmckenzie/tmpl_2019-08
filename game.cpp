@@ -30,16 +30,26 @@ namespace Tmpl8
 		screen->Line(100 + x, 300 + y, 200 + x, 300 + y, 0xffffff);
 	}
 	Sprite theSprite(new Surface("assets/ball.png"), 1);
-
+	/*
 	int spriteX = 0;
 	int spriteY = 100;
 	int speed = 1;
 	int speedX = 5;
+	*/
+	float spriteY = 0, speed = 1;
 
 	void Game::Tick(float deltaTime)
 	{
-		//draw sprites - tga (raster files)
 		screen->Clear(0);
+		spriteY += speed;
+		speed += 1.0f;
+		if (spriteY > (512 - 50)) {
+			spriteY = 512 - 50;
+			speed = -speed * 0.8f;
+		}
+		theSprite.Draw(screen, 20, spriteY);
+
+		/* //ball in a box
 		theSprite.Draw(screen, spriteX, spriteY); //add ball to screen
 		spriteY += speed;
 		spriteX += speedX;
@@ -69,7 +79,7 @@ namespace Tmpl8
 			spriteX = 0;
 			speedX = -speedX;
 			theSprite.Draw(screen, spriteX, spriteY);
-		}
+		}*/
 	}
 };
 
