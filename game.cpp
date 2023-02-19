@@ -34,6 +34,7 @@ namespace Tmpl8
 	int spriteX = 0;
 	int spriteY = 100;
 	int speed = 1;
+	int speedX = 5;
 
 	void Game::Tick(float deltaTime)
 	{
@@ -41,9 +42,10 @@ namespace Tmpl8
 		screen->Clear(0);
 		theSprite.Draw(screen, spriteX, spriteY); //add ball to screen
 		spriteY += speed;
+		spriteX += speedX;
 		speed++;
 		bool hitBottom = spriteY > (512 - 50);
-		printf("hitBottom: %i\n", hitBottom);
+		//printf("hitBottom: %i\n", hitBottom);
 
 		if (hitBottom) {
 			spriteY = 512 - 50;
