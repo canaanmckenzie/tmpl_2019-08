@@ -35,10 +35,12 @@ namespace Tmpl8
 	{
 		//draw sprites - tga (raster files)
 		screen->Clear(0);
-		theSprite.Draw(screen, 0, 0);
-
-
-
+			for (int i = 0; i < 16; i++) {
+			theSprite.SetFrame(i);
+			for (int j = 0; j < 10; j++) {
+				theSprite.Draw(screen, i * 50, j*50);
+			}
+		}
 	}
 };
 
