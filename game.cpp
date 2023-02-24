@@ -4,20 +4,26 @@
 #include <cassert>
 #include "template.h"
 
-constexpr auto PARTICLES = 4096u;
+//constexpr auto PARTICLES = 4096u; //c++ 11 and up, compile time constant
+
 
 namespace Tmpl8
 {
+	float x = 400, y = 256;
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
-	int x[PARTICLES], y[PARTICLES]; //added for array set
+	
+	//dynamic particle movement across screen
+	//int x[PARTICLES], y[PARTICLES]; //added for array set
 
-	void Game::Init()
-	{
+	void Game::Init(){
+
+		/* //diagnol particles moving across screen
 		for (int i = 0; i < PARTICLES; i++) {
 			x[i] = IRand(800), y[i] = IRand(512);
 		}
+		*/
 	}
 	// -----------------------------------------------------------
 	// Close down application
@@ -50,11 +56,16 @@ namespace Tmpl8
 	{	
 		//clear graphics window
 		screen->Clear(0);
+		screen->Line(mousex, 0, mousex, 511, 0xff0000);
+		screen->Line(0, mousey, 799, mousey, 0xff0000);
+
+		/* //particle movement across screen
 		for (int i = 0; i < PARTICLES; i++) {
 			x[i] = (x[i] + 800 + (((i & 1) * 2) - 1)) % 800;
 			y[i] = (y[i] + 512 + ((((i >> 2) & 1) * 2) - 1)) & 511;
 			screen->GetBuffer()[x[i] + y[i] * 800] = 0xffffff;
 		}
+		*/
 		
 		//draw a grid
 		/*
