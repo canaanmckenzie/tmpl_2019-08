@@ -2,21 +2,25 @@
 #include "surface.h"
 #include <cstdio> //printf
 #include <cassert>
+#include "template.h"
 
 namespace Tmpl8
 {
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
+	int x[4096], y[4096]; //added for array set
+
 	void Game::Init()
 	{
+		for (int i = 0; i < 4096; i++) {
+			x[i] = IRand(800), y[i] = IRand(512);
+		}
 	}
 	// -----------------------------------------------------------
 	// Close down application
 	// -----------------------------------------------------------
-	void Game::Shutdown()
-	{
-	}
+	void Game::Shutdown(){}
 
 	static Sprite rotatingGun(new Surface("assets/aagun.tga"), 36);
 	static int frame = 0;
@@ -44,8 +48,14 @@ namespace Tmpl8
 	{	
 		//clear graphics window
 		screen->Clear(0);
-	
+		for (int i = 0; i < 4096; i++) {
+			x[i] = (x[i] + 800 + (((i & 1) * 2) - 1)) % 800;
+			y[i] = (y[i] + 512 + ((((i >> 2) & 1) * 2) - 1)) & 511;
+			screen->GetBuffer()[x[i] + y[i] * 800] = 0xffffff;
+		}
+		
 		//draw a grid
+		/*
 		for (int x = 15; x < 800; x += 16) {
 			for (int y = 6; y < 480; y += 12) {
 				Pixel p = image.GetBuffer()[x / 16 + (y / 12) * 50];
@@ -58,6 +68,7 @@ namespace Tmpl8
 				screen->Bar(x, y +8, x + 12, y + 10, blue);
 			}
 		}
+		*/
 	
 		/*
 		//ball in a box
