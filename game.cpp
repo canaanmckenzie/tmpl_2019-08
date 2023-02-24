@@ -1,6 +1,7 @@
 #include "game.h"
 #include "surface.h"
 #include <cstdio> //printf
+#include <cassert>
 
 namespace Tmpl8
 {
@@ -20,6 +21,7 @@ namespace Tmpl8
 	static Sprite rotatingGun(new Surface("assets/aagun.tga"), 36);
 	static int frame = 0;
 
+	Surface image("assets/ball.png");
 	// -----------------------------------------------------------
 	// Main application tick function
 	// -----------------------------------------------------------
@@ -29,27 +31,36 @@ namespace Tmpl8
 		screen->Line(150 + x, 50 + y, 150 + x, 300 + y, 0xffffff);
 		screen->Line(100 + x, 300 + y, 200 + x, 300 + y, 0xffffff);
 	}
-	Sprite theSprite(new Surface("assets/ball.png"), 1);
+	//Sprite theSprite(new Surface("assets/ball.png"), 1);
+	
 	/*
 	int spriteX = 0;
 	int spriteY = 100;
 	int speed = 1;
 	int speedX = 5;
 	*/
-	float spriteY = 0, speed = 1;
-
+	
 	void Game::Tick(float deltaTime)
-	{
+	{	
+		//clear graphics window
 		screen->Clear(0);
-		spriteY += speed;
-		speed += 1.0f;
-		if (spriteY > (512 - 50)) {
-			spriteY = 512 - 50;
-			speed = -speed * 0.8f;
+	
+		//draw a grid
+		for (int x = 15; x < 800; x += 16) {
+			for (int y = 6; y < 480; y += 12) {
+				Pixel p = image.GetBuffer()[x / 16 + (y / 12) * 50];
+				int red = p & 0xff0000;
+				int green = p & 0x00ff00;
+				int blue = p & 0x0000ff;
+				//assert(y < 400);
+				screen->Bar(x, y, x + 12, y + 2, red);
+				screen->Bar(x, y + 4, x + 12, y + 6, green);
+				screen->Bar(x, y +8, x + 12, y + 10, blue);
+			}
 		}
-		theSprite.Draw(screen, 20, spriteY);
-
-		/* //ball in a box
+	
+		/*
+		//ball in a box
 		theSprite.Draw(screen, spriteX, spriteY); //add ball to screen
 		spriteY += speed;
 		spriteX += speedX;
@@ -79,7 +90,9 @@ namespace Tmpl8
 			spriteX = 0;
 			speedX = -speedX;
 			theSprite.Draw(screen, spriteX, spriteY);
-		}*/
+		}
+		*/
+		
 	}
 };
 
