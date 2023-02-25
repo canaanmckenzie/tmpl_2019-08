@@ -4,26 +4,24 @@
 #include <cassert>
 #include "template.h"
 
-//constexpr auto PARTICLES = 4096u; //c++ 11 and up, compile time constant
-
+constexpr auto PARTICLES = 4096u; //c++ 11 and up, compile time constant
 
 namespace Tmpl8
 {
-	float x = 400, y = 256;
+	//float x[200], y[200];
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
 	
 	//dynamic particle movement across screen
-	//int x[PARTICLES], y[PARTICLES]; //added for array set
+	int x[PARTICLES], y[PARTICLES]; //added for array set
 
 	void Game::Init(){
 
-		/* //diagnol particles moving across screen
 		for (int i = 0; i < PARTICLES; i++) {
 			x[i] = IRand(800), y[i] = IRand(512);
 		}
-		*/
+
 	}
 	// -----------------------------------------------------------
 	// Close down application
@@ -54,18 +52,27 @@ namespace Tmpl8
 	
 	void Game::Tick(float deltaTime)
 	{	
-		//clear graphics window
+		// move a cross hairs with mouse, chase a white pixel around viewport
 		screen->Clear(0);
 		screen->Line(mousex, 0, mousex, 511, 0xff0000);
 		screen->Line(0, mousey, 799, mousey, 0xff0000);
 
-		/* //particle movement across screen
+
+		/*
 		for (int i = 0; i < PARTICLES; i++) {
 			x[i] = (x[i] + 800 + (((i & 1) * 2) - 1)) % 800;
 			y[i] = (y[i] + 512 + ((((i >> 2) & 1) * 2) - 1)) & 511;
 			screen->GetBuffer()[x[i] + y[i] * 800] = 0xffffff;
 		}
 		*/
+		for (int i = 0; i < 500; i++) {
+			int dx = x[i] - mousex, dy = y[i] - mousey;
+			int dist = sqrt(dx * dx + dy * dy);
+			if (dist < 50 && dist != 0) {
+				(int)x[i] += dx / dist * 2, (int)y[i] += dy / dist * 2;
+			}
+			screen->Plot((int)x[i], (int)y[i], 0xffffff);
+		}
 		
 		//draw a grid
 		/*
