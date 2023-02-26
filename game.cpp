@@ -119,7 +119,7 @@ namespace Tmpl8
 			}
 		}
 
-		/* //user controls
+		 //user controls
 		int nx = px, ny = py;
 		if (GetAsyncKeyState(VK_LEFT)) { nx--; tank.SetFrame(12); }
 		if (GetAsyncKeyState(VK_RIGHT)) { nx++; tank.SetFrame(4); }
@@ -129,10 +129,11 @@ namespace Tmpl8
 			CheckPos(nx + 30, ny) && CheckPos(nx, ny + 30)) {
 			px = nx, py = ny;
 		}
-		*/
+		
 
 		//automate tank
-		mytank.MoveRight(screen);
+		//mytank.MoveRight(screen);
+		tank.Draw(screen, px, py); 
 
 
 	}
