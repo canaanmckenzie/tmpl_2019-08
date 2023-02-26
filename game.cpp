@@ -5,6 +5,10 @@
 #include "template.h"
 #include <windows.h>
 
+#define TILESIZE 32
+#define MAPSIZEX 800
+#define MAPSIZEY 512
+
 namespace Tmpl8
 {
 	Surface tiles("assets/nc2tiles.png");
@@ -22,26 +26,7 @@ namespace Tmpl8
 	void Game::Shutdown() {}
 
 	char map[48][30]{
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXfb-fb-fb-kc-kc-kcXkcXkcXkc","kcXfb-fb-fb-fb-fb-kcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkcXkcXkcXkcXkcXkcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXfb-fb-fb-fb-fb-kcXkcXkcXkc","kcXlcXlcXfb-fb-fb-kcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXfb-fb-fb-kc-kc-kcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXlcXlcXfb-fb-fb-kcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXfb-fb-fb-kc-kc-kcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXlcXlcXfb-fb-fb-kcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkcXkcXkcXkcXkcXkcXkcXkcXkc","kcXfb-fb-fb-kc-kc-kcXkcXkcXkc","kcXfb-fb-fb-fb-fb-kcXkcXkcXkc",
-		"kcXlcXlcXfb-fb-fb-kcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXfb-fb-fb-kc-kc-kcXkcXkcXkc","kcXfb-fb-fb-fb-fb-kcXkcXkcXkc",
-		"kcXlcXlcXfb-fb-fb-kcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkcXkcXkcXkcXkcXkcXkcXkcXkc",
-		"kcXfb-fb-fb-kc-kc-kcXkcXkcXkc","kcXfb-fb-fb-fb-fb-kcXkcXkcXkc","kcXlcXlcXfb-fb-fb-kcXkcXkcXkc",
-		"kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc",
-		"kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc","kcXkc-kc-lcXlcXlcXkcXkcXkcXkc"
-	};
-
-	char map2[48][30]{
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
 		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
 		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
 		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
@@ -59,11 +44,61 @@ namespace Tmpl8
 		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb"
 	};
 
+	char map2[48][30] = {
+"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe",
+"fb-fe-fe-fe-fb-fb-fb-fb-fb-fb",
+"fb-fe-fe-fe-fe-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb"
+	};
 	void DrawTile(int tx, int ty, Surface* screen, int x, int y) {
-		Pixel* src = tiles.GetBuffer() + 1 + tx * 33 + (1 + ty * 33) * 595;
-		Pixel* dst = screen->GetBuffer() + x + y * 800;
-		for (int i = 0; i < 32; i++, src += 595, dst += 800) {
-			for (int j = 0; j < 32; j++) {
+		Pixel* src = tiles.GetBuffer() + 1 + tx * (TILESIZE+1) + (1 + ty * (TILESIZE+1)) * 595;
+		Pixel* dst = screen->GetBuffer() + x + y * MAPSIZEX;
+		for (int i = 0; i < TILESIZE; i++, src += 595, dst += MAPSIZEX) {
+			for (int j = 0; j < TILESIZE; j++) {
 				dst[j] = src[j];
 			}
 		}
@@ -74,12 +109,12 @@ namespace Tmpl8
 	public:
 		Tank() {
 			x = 0;
-			y = 0;
+			y = 200;
 			rotation = 0;
 		}
 		void Tank::MoveRight(Surface* gamescreen) {
 			x++;
-			if (x > 800) {
+			if (x > MAPSIZEX) {
 				x = 0;
 			}
 			tank.Draw(gamescreen, x, y);
@@ -87,19 +122,35 @@ namespace Tmpl8
 		}
 		void Tank::MoveDown(Surface* gamescreen) {
 			y++;
-			if (y > 512) {
+			if (y > MAPSIZEY) {
 				y = 0;
 			}
 			tank.Draw(gamescreen, x, y);
 			tank.SetFrame(8);
 
 		}
+		void Tank::MoveUp(Surface* gamescreen) {
+			y--;
+			if (y < 0) {
+				y = MAPSIZEY;
+			}
+			tank.Draw(gamescreen, x, y);
+			tank.SetFrame(0);
+		}
+		void Tank::MoveLeft(Surface* gamescreen) {
+			x--;
+			if (x < 0) {
+				x = MAPSIZEX;
+			}
+			tank.Draw(gamescreen, x, y);
+			tank.SetFrame(12);
+		}
 		int x, y, rotation;
 
 	};
 
 	bool CheckPos(int x, int y) {
-		int tx = x / 32, ty = y / 32;
+		int tx = x / TILESIZE, ty = y / TILESIZE;
 		return map2[ty][tx * 3 + 2] != 'X';
 	}
 
@@ -111,11 +162,11 @@ namespace Tmpl8
 	{	
 
 		screen->Clear(0);
-		for (int y = 0; y < 16; y++) {
-			for (int x = 0; x < 25; x++) {
+		for (int y = 0; y < MAPSIZEY/TILESIZE; y++) {
+			for (int x = 0; x < MAPSIZEX/TILESIZE; x++) {
 				int tx = map2[y][x * 3] - 'a';
 				int ty = map2[y][x * 3 + 1] - 'a';
-				DrawTile(tx, ty, screen, x * 32, y * 32);
+				DrawTile(tx, ty, screen, x * TILESIZE, y * TILESIZE);
 			}
 		}
 
@@ -132,7 +183,7 @@ namespace Tmpl8
 		*/
 
 		//automate tank
-		mytank.MoveDown(screen);
+		mytank.MoveLeft(screen);
 
 
 	}
