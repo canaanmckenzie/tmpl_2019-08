@@ -13,7 +13,7 @@ namespace Tmpl8
 {
 	Surface tiles("assets/nc2tiles.png");
 	Sprite tank(new Surface("assets/ctankbase.tga"), 16);
-	int px = 32, py = 32;
+	int px = 64, py = 32;
 
 	// -----------------------------------------------------------
 	// Initialize the application
@@ -25,75 +25,25 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Shutdown() {}
 
-	char map[48][30]{
-		"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb","fb-fb-fb-fb-fb-fb-fb-fb-fb-fb"
+	char map[16][75]{
+		"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fc",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
+		"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
 	};
 
-	char map2[48][30] = {
-"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe",
-"fb-fe-fe-fe-fb-fb-fb-fb-fb-fb",
-"fb-fe-fe-fe-fe-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb",
-"fb-fb-fb-fb-fb-fb-fb-fb-fb-fb"
-	};
 	void DrawTile(int tx, int ty, Surface* screen, int x, int y) {
 		Pixel* src = tiles.GetBuffer() + 1 + tx * (TILESIZE+1) + (1 + ty * (TILESIZE+1)) * 595;
 		Pixel* dst = screen->GetBuffer() + x + y * MAPSIZEX;
@@ -151,26 +101,25 @@ namespace Tmpl8
 
 	bool CheckPos(int x, int y) {
 		int tx = x / TILESIZE, ty = y / TILESIZE;
-		return map2[ty][tx * 3 + 2] != 'X';
+		return map[ty][tx * 3 + 2] != 'X';
 	}
 
 	//add tank to map
 	Tank mytank;
 
-	
 	void Game::Tick(float deltaTime)
 	{	
 
 		screen->Clear(0);
 		for (int y = 0; y < MAPSIZEY/TILESIZE; y++) {
 			for (int x = 0; x < MAPSIZEX/TILESIZE; x++) {
-				int tx = map2[y][x * 3] - 'a';
-				int ty = map2[y][x * 3 + 1] - 'a';
+				int tx = map[y][x * 3] - 'a';
+				int ty = map[y][x * 3 + 1] - 'a';
 				DrawTile(tx, ty, screen, x * TILESIZE, y * TILESIZE);
 			}
 		}
 
-		/*
+		/* //user controls
 		int nx = px, ny = py;
 		if (GetAsyncKeyState(VK_LEFT)) { nx--; tank.SetFrame(12); }
 		if (GetAsyncKeyState(VK_RIGHT)) { nx++; tank.SetFrame(4); }
@@ -183,7 +132,7 @@ namespace Tmpl8
 		*/
 
 		//automate tank
-		mytank.MoveLeft(screen);
+		mytank.MoveRight(screen);
 
 
 	}
