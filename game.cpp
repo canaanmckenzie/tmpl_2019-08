@@ -26,22 +26,22 @@ namespace Tmpl8
 	void Game::Shutdown() {}
 
 	char map[16][75]{
-		"ec-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fc",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fa",
-		"ed-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fd",
+		"ecXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfeXfc",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"fa-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fb-fbXfa",
+		"ed-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-fe-feXfd",
 	};
 
 	void DrawTile(int tx, int ty, Surface* screen, int x, int y) {
